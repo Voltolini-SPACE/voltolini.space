@@ -77,7 +77,7 @@
     h3 { font-family:'Fredoka',sans-serif; font-weight:600; color:var(--title); }
     a { color:var(--azul); text-decoration:none; }
     a:hover { text-decoration:underline; }
-    img { max-width:100%; }
+    img { max-width:100%; height:auto; }
     .wrap { max-width:1080px; margin:0 auto; padding:0 24px; }
     .legenda { font:600 13px/1 'Inter',sans-serif; letter-spacing:.14em;
         text-transform:uppercase; color:var(--coral); }
@@ -208,7 +208,8 @@
         background:radial-gradient(220px circle at var(--mx,50%) var(--my,50%), rgba(255,122,77,.16), transparent 65%); }
     .card:hover::after, .pill-box:hover::after { opacity:1; }
     .card:hover, .pill-box:hover { border-color:rgba(255,122,77,.45); }
-    .nomos .shot { transition:transform .25s cubic-bezier(.2,.75,.2,1); }
+    .nomos .shot { display:block; transition:transform .25s cubic-bezier(.2,.75,.2,1); }
+    .nomos .shot img { display:block; width:100%; height:auto; }
     .nomos .shot:hover { transform:translateY(-4px) scale(1.012); }
     .quem img { transition:transform .3s cubic-bezier(.2,.75,.2,1); }
     .quem img:hover { transform:rotate(-2deg) scale(1.03); }

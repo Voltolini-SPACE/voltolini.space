@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="voltolini.space é um hub pessoal onde a IA é parceira de aprendizado. Você aprende como a IA funciona, vê como eu aplico e leva ferramentas prontas pra usar.">
     <meta name="author" content="Voltolini">
-    <meta name="theme-color" content="#FFF6EF">
+    <meta name="theme-color" content="#1A1620">
     <link rel="canonical" href="https://voltolini.space/">
     <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
     <!-- Open Graph -->
@@ -26,11 +26,12 @@
     <meta name="twitter:image" content="https://voltolini.space/assets/og-image.png">
     <title>voltolini.space · aprender, ensinar e colaborar com IA</title>
     <script>
-        /* tema: escolha salva vence; primeira visita segue o sistema (brandbook §20) */
-        try { var _t = localStorage.getItem('voltolini-tema');
-            if (_t === 'claro' || _t === 'escuro')
-                document.documentElement.setAttribute('data-tema', _t);
+        /* tema: abre no escuro; escolha salva do visitante vence (decisão do dono 07/08) */
+        var _t = 'escuro';
+        try { var _s = localStorage.getItem('voltolini-tema');
+            if (_s === 'claro' || _s === 'escuro') _t = _s;
         } catch (e) {}
+        document.documentElement.setAttribute('data-tema', _t);
     </script>
     <style>
     /* ============ marca voltolini.space · v1.0 (04_EM_CURADORIA) ============

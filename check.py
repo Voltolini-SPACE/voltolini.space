@@ -165,6 +165,33 @@ def main() -> int:
     if "linear-gradient(120deg,#FF7A4D,#3B6FE0)" not in bruto:
         erros.append("marca: gradiente-assinatura sumiu")
 
+
+    # ===== antirregressão v1.3.4: proporção de imagens (incidente NOMOS) =====
+    # 1. regra global obrigatória: largura responsiva exige altura automática
+    if "img { max-width:100%; height:auto; }" not in bruto:
+        erros.append("img: regra global 'max-width:100%; height:auto' sumiu (reintroduz deformação)")
+    # 2. regra específica do shot do NOMOS
+    if ".nomos .shot img { display:block; width:100%; height:auto; }" not in bruto:
+        erros.append("nomos: regra .shot img com height:auto sumiu")
+    # 3. atributos width/height de cada <img> devem bater com o arquivo real
+    for m in re.finditer(r'<img[^>]*src="assets/([^"]+\.png)"[^>]*width="(\d+)"[^>]*height="(\d+)"', bruto):
+        arq, aw, ah = m.group(1), int(m.group(2)), int(m.group(3))
+        dados = (RAIZ / "assets" / arq).read_bytes()
+        rw = int.from_bytes(dados[16:20], "big")
+        rh = int.from_bytes(dados[20:24], "big")
+        if abs(aw / ah - rw / rh) > 0.01:
+            erros.append(f"{arq}: atributos {aw}x{ah} divergem do arquivo {rw}x{rh}")
+    # 4. foto do quem sou tem height FIXA no CSS; o asset PRECISA ser quadrado
+    svg = (RAIZ / "assets/foto-voltolini.svg").read_text()
+    vb = re.search(r'viewBox="0 0 (\d+) (\d+)"', svg)
+    if not vb or vb.group(1) != vb.group(2):
+        erros.append("foto-voltolini.svg: viewBox não é quadrado; .quem img (180x180) deformaria")
+    # 5. nenhuma NOVA regra de height fixa em px para seletores de img (allowlist: .quem img)
+    for m in re.finditer(r'([^{}]*\bimg\b[^{}]*)\{([^}]*height:\s*\d+px[^}]*)\}', bruto):
+        sel = m.group(1).strip()
+        if ".quem img" not in sel:
+            erros.append(f"img: height fixa em px no seletor '{sel}' (classe do incidente NOMOS)")
+
     print("voltolini.space · validação local\n")
     if erros:
         for e in erros:

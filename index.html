@@ -89,8 +89,8 @@
     .logo { display:flex; align-items:center; gap:10px; font-family:'Fredoka',sans-serif;
         font-weight:600; font-size:22px; color:var(--title); }
     .logo svg { width:28px; height:28px; }
-    .logo .ext { font-size:13px; background:var(--coral); color:#FFF6EF;
-        border-radius:100px; padding:3px 10px; letter-spacing:.02em; }
+    .logo .ext { font-size:13px; background:var(--coral); color:#1A1620;
+        font-weight:600; border-radius:100px; padding:3px 10px; letter-spacing:.02em; }
     nav { display:flex; gap:22px; align-items:center; flex-wrap:wrap; }
     nav a { color:var(--text); font-size:15px; }
     .toggle { cursor:pointer; border:1px solid var(--linha); background:var(--panel);
@@ -561,6 +561,14 @@
         });
     }, { threshold: 0.6 });
     document.querySelectorAll('.contador').forEach(function (el) { ioNum.observe(el); });
+    /* failsafe incondicional: em qualquer contexto patológico (IO mudo, rAF
+       congelado, aba jamais renderizada) o número final SEMPRE pousa */
+    setTimeout(function () {
+        document.querySelectorAll('.contador').forEach(function (el) {
+            var alvo = fmt.format(+el.dataset.alvo);
+            if (el.textContent !== alvo) el.textContent = alvo;
+        });
+    }, 4000);
 })();
 </script>
 </body>

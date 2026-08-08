@@ -547,14 +547,17 @@
         es.forEach(function (e) {
             if (!e.isIntersecting) return;
             ioNum.unobserve(e.target);
-            var alvo = +e.target.dataset.alvo, t0 = null;
+            var alvo = +e.target.dataset.alvo, t0 = null, fim = false;
             function passo(ts) {
+                if (fim) return;
                 if (!t0) t0 = ts;
                 var k = Math.min((ts - t0) / 1200, 1);
                 e.target.textContent = fmt.format(Math.round(alvo * (1 - Math.pow(1 - k, 3))));
                 if (k < 1) requestAnimationFrame(passo);
             }
             requestAnimationFrame(passo);
+            /* pouso garantido: rAF pode congelar em janela oculta */
+            setTimeout(function () { fim = true; e.target.textContent = fmt.format(alvo); }, 1500);
         });
     }, { threshold: 0.6 });
     document.querySelectorAll('.contador').forEach(function (el) { ioNum.observe(el); });

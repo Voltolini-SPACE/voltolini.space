@@ -133,6 +133,38 @@ def main() -> int:
     if "overflow-x:clip" not in bruto:
         erros.append("html sem overflow-x:clip (aurora vaza)")
 
+
+    # ===== antirregressão v1.2 =====
+    # tema: abre sempre escuro (decisão do dono 07/08)
+    if "var _t = 'escuro';" not in bruto:
+        erros.append("tema: boot não abre no escuro por padrão")
+    # camada premium não pode sumir em silêncio
+    for marca_premium in ('class="grao"', 'id="progresso"', 'orbe-a', 'orbe-b', 'orbe-c',
+                          'class="contador"', 'ia-shimmer', "requestAnimationFrame(aurora)"):
+        if marca_premium not in bruto:
+            erros.append(f"premium: sumiu '{marca_premium}'")
+    # tagline bilíngue
+    for frase in ("aprender · ensinar · colaborar com ia", "learn · teach · collaborate with ai"):
+        if frase not in bruto:
+            erros.append(f"tagline: sumiu '{frase}'")
+    # ecossistema completo
+    for dominio in ("podpagar.com.br", "confrapag.com.br", "se7enpay.com.br",
+                    "github.com/Voltolini-SPACE/NOMOS"):
+        if dominio not in bruto:
+            erros.append(f"ecossistema: sumiu {dominio}")
+    # SE7EN PAY sempre em caixa alta com o 7 (regra da casa)
+    for errado in ("Se7en Pay", "se7en pay", "Se7enPay", "SEVEN PAY"):
+        if errado in bruto:
+            erros.append(f"marca: grafia errada '{errado}' (é SE7EN PAY)")
+    # runtime 100% local: nada que o browser baixe pode vir de fora
+    for m in re.finditer(r'<(?:img|script)[^>]+src="(https?://[^"]+)"', bruto):
+        erros.append(f"asset externo em runtime: {m.group(1)}")
+    for m in re.finditer(r'<link[^>]+rel="(?:stylesheet|preload|icon|apple-touch-icon)"[^>]*href="(https?://[^"]+)"', bruto):
+        erros.append(f"asset externo em runtime: {m.group(1)}")
+    # gradiente-assinatura da marca presente
+    if "linear-gradient(120deg,#FF7A4D,#3B6FE0)" not in bruto:
+        erros.append("marca: gradiente-assinatura sumiu")
+
     print("voltolini.space · validação local\n")
     if erros:
         for e in erros:

@@ -150,6 +150,12 @@
     .nomos li { padding:7px 0 7px 30px; position:relative; font-size:16px; }
     .nomos li::before { content:"✓"; position:absolute; left:2px; color:var(--coral); font-weight:700; }
 
+    .card-eco { display:block; color:inherit; }
+    .card-eco:hover { text-decoration:none; }
+    .card-eco h3 { display:flex; align-items:center; gap:10px; }
+    .eco-dot { width:12px; height:12px; border-radius:4px; flex:none; }
+    .eco-link { display:inline-block; margin-top:12px; font:600 13.5px 'Inter',sans-serif; color:var(--azul); }
+
     /* quem sou */
     .quem { display:flex; gap:40px; align-items:center; }
     .quem img { width:180px; height:180px; flex:none; }
@@ -255,6 +261,7 @@
             <a href="#pilares">pilares</a>
             <a href="#embreve">em breve</a>
             <a href="#nomos">nomos</a>
+            <a href="#ecossistema">ecossistema</a>
             <a href="#quem">quem sou</a>
             <button class="toggle" id="toggle" aria-label="Alternar tema claro e escuro">◐ tema</button>
         </nav>
@@ -375,6 +382,36 @@
                 </div>
                 <a class="shot rv" href="https://github.com/Voltolini-SPACE/NOMOS" aria-label="Abrir o repositório do NOMOS">
                     <img src="assets/nomos-preview.png" alt="NOMOS. Seu agente. Sua máquina. Suas regras. Local por lei." width="1280" height="640" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="ecossistema" aria-labelledby="eco-t">
+        <div class="wrap">
+            <div class="sec-head rv">
+                <span class="legenda">ecossistema</span>
+                <h2 id="eco-t">Onde eu construo todos os dias</h2>
+                <p>Produtos vivos, cada um com a sua marca. O que aprendo neles vira conteúdo aqui.</p>
+            </div>
+            <div class="grid3">
+                <a class="card rv card-eco" href="https://podpagar.com.br">
+                    <span class="status">novo</span>
+                    <h3><span class="eco-dot" style="background:#C9FF3B"></span>podpagar</h3>
+                    <p>Crie, conecte ou publique. Negócios digitais prontos para vender, com cobrança pronta antes do primeiro deploy.</p>
+                    <span class="eco-link">podpagar.com.br</span>
+                </a>
+                <a class="card rv card-eco" href="https://confrapag.com.br">
+                    <span class="status">ecossistema</span>
+                    <h3><span class="eco-dot" style="background:#15F35B"></span>CONFRAPAG</h3>
+                    <p>O maior ecossistema de pagamentos do Brasil. É onde eu sou pilar e opero no dia a dia.</p>
+                    <span class="eco-link">confrapag.com.br</span>
+                </a>
+                <a class="card rv card-eco" href="https://www.se7enpay.com.br">
+                    <span class="status">fintech</span>
+                    <h3><span class="eco-dot" style="background:#00E9F4"></span>SE7EN PAY</h3>
+                    <p>Pagamentos com prova no dia a dia. A fintech que eu toco de perto.</p>
+                    <span class="eco-link">se7enpay.com.br</span>
                 </a>
             </div>
         </div>

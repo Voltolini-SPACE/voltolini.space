@@ -180,7 +180,7 @@
         EPISTEMOS
       </a>
       <nav class="links" aria-label="Sections">
-        <a href="#problem">Problem</a><a href="#panel">Panel</a><a href="#belief">Belief</a>
+        <a href="#problem">Problem</a><a href="#panel">Panel</a><a href="#belief">Belief</a><a href="#context">Context</a>
         <a href="#time">Time</a><a href="#security">Security</a><a href="#architecture">Architecture</a>
         <a href="#developers">Developers</a>
       </nav>
@@ -197,7 +197,7 @@
           <path d="M700 240 H1090"/><path d="M700 300 H1160"/><path d="M700 360 H1110"/></g>
       </svg>
       <div class="wrap">
-        <span class="kicker"><span class="d"></span> Open Source · MIT · core v0.5 &amp; Panel v1.1</span>
+        <span class="kicker"><span class="d"></span> Open Source · MIT · core v0.6 &amp; Panel v1.1</span>
         <h1>EPISTEMOS</h1>
         <p class="lead">Turn information into auditable knowledge.</p>
         <p class="sub">A sovereign, local-first engine and operational panel for context, memory, provenance, claims and decision lineage. Bitemporal, explainable, zero egress, with no mandatory LLM and zero runtime dependencies.</p>
@@ -328,6 +328,21 @@
           <div class="card"><h3>Leak invariants at zero</h3><p>PRIVATE_UI, PRIVATE_GRAPH, PRIVATE_SEARCH and PRIVATE_STREAM leak, all measured at zero across the boundary tests.</p></div>
         </div>
         <p class="note">Panel v1.1 is an adversarially validated hardening pass. Time travel no longer leaks the future (an as-of view reconstructs state only from events up to that instant); the HTTP boundary is proofed against request smuggling and malformed input; the interface renders untrusted content inertly. Verified by a panel-boundary mutation suite, a concurrency battery and a crash-and-rebuild recovery test. It is hardened, not a claim of zero vulnerabilities.</p>
+      </div>
+    </section>
+
+    <section id="context">
+      <div class="wrap">
+        <p class="eyebrow">Context envelope</p>
+        <h2>Compress the transmission of memory, not the memory.</h2>
+        <p class="say">An agent rarely needs the whole store for one question. The context envelope is a post retrieval transform that returns an evidence preserving, compact context. It pins contradictions, collapses only provably safe redundancy, keeps every source reachable, and declares any omission honestly. It never widens the candidate set and never lowers an authorization boundary, so the same is_readable predicate that guards the Panel guards the envelope.</p>
+        <div class="grid g2" style="margin-top:22px">
+          <div class="card"><h3>Contradictions pinned</h3><p>Every contradiction, including one attached to a retrieved claim and re-authorized for the reader, is delivered inline and never folded away.</p></div>
+          <div class="card"><h3>Safe collapse only</h3><p>Superseded current state versions fold for a confident current question, and identical duplicates fold always. History, corroboration and decisions never fold.</p></div>
+          <div class="card"><h3>Honest by default</h3><p>Any real omission sets context incomplete with a reason, and every folded object stays reachable behind a handle. Nothing is silently dropped.</p></div>
+          <div class="card"><h3>Measured, not sold</h3><p>Up to about 35 percent fewer tokens in measured redundant scenarios, stable as the corpus grows, with zero evidence, contradiction or temporal loss. Not a universal figure.</p></div>
+        </div>
+        <p class="note">Shipped in core v0.6 as an additive engine method. Token budget packing and continuation handles ship experimental and off by default. It promotes only what survived falsification: four richer theories were tested and rejected before this one was proven at scale.</p>
       </div>
     </section>
 

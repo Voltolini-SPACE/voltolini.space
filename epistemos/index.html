@@ -180,7 +180,7 @@
         EPISTEMOS
       </a>
       <nav class="links" aria-label="Sections">
-        <a href="#problem">Problem</a><a href="#panel">Panel</a><a href="#belief">Belief</a><a href="#context">Context</a>
+        <a href="#problem">Problem</a><a href="#panel">Panel</a><a href="#belief">Belief</a><a href="#context">Context</a><a href="#protocol">Protocol</a>
         <a href="#time">Time</a><a href="#security">Security</a><a href="#architecture">Architecture</a>
         <a href="#developers">Developers</a>
       </nav>
@@ -197,7 +197,7 @@
           <path d="M700 240 H1090"/><path d="M700 300 H1160"/><path d="M700 360 H1110"/></g>
       </svg>
       <div class="wrap">
-        <span class="kicker"><span class="d"></span> Open Source · MIT · core v0.6 &amp; Panel v1.1</span>
+        <span class="kicker"><span class="d"></span> Open Source · MIT · core v0.7 &amp; Panel v1.1</span>
         <h1>EPISTEMOS</h1>
         <p class="lead">Turn information into auditable knowledge.</p>
         <p class="sub">A sovereign, local-first engine and operational panel for context, memory, provenance, claims and decision lineage. Bitemporal, explainable, zero egress, with no mandatory LLM and zero runtime dependencies.</p>
@@ -343,6 +343,21 @@
           <div class="card"><h3>Measured, not sold</h3><p>Up to about 35 percent fewer tokens in measured redundant scenarios, stable as the corpus grows, with zero evidence, contradiction or temporal loss. Not a universal figure.</p></div>
         </div>
         <p class="note">Shipped in core v0.6 as an additive engine method. Token budget packing and continuation handles ship experimental and off by default. It promotes only what survived falsification: four richer theories were tested and rejected before this one was proven at scale.</p>
+      </div>
+    </section>
+
+    <section id="protocol">
+      <div class="wrap">
+        <p class="eyebrow">EPCTX protocol</p>
+        <h2>Any agent can consume EPISTEMOS context.</h2>
+        <p class="say">EPCTX is a stable, provider agnostic consumption contract. The same document, with the same meaning, reaches a consumer three ways: an in process client, a REST endpoint, and an MCP tool. Objects are typed so a claim is never mistaken for a fact, contradictions sit in their own section, completeness and temporal state and provenance are explicit, tokens are accounted, and an integrity hash travels with the document. Identity is always server side. The request never carries authority. EPISTEMOS returns context and executes nothing.</p>
+        <div class="grid g2" style="margin-top:22px">
+          <div class="card"><h3>One contract, three transports</h3><p>SDK, REST and MCP deliver an equivalent document. A consumer writes to the protocol, not to a transport, and swaps freely.</p></div>
+          <div class="card"><h3>Claim is not fact</h3><p>Every object is typed, and a claim carries its belief and acceptance state. A disputed claim can never be read as accepted knowledge by accident.</p></div>
+          <div class="card"><h3>Data is not instruction</h3><p>The optional renderer fences context under a data only banner. Evidence that says ignore previous instructions stays a quoted datum, never a command.</p></div>
+          <div class="card"><h3>Adapter ready, not coupled</h3><p>The protocol is ready for other agents and runtimes, with no dependency on any of them. EPISTEMOS grants no capability and mandates no provider.</p></div>
+        </div>
+        <p class="note">Shipped in core v0.7. Verified across all three transports with a private leak battery, a prompt injection battery, a race and chaos suite, and a mutation gate. Opaque expansion handles are experimental and off the stable path. Integration notes for other systems are specifications only, deliberately not built yet.</p>
       </div>
     </section>
 

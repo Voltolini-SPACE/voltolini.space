@@ -194,7 +194,7 @@
           <path d="M700 240 H1090"/><path d="M700 300 H1160"/><path d="M700 360 H1110"/></g>
       </svg>
       <div class="wrap">
-        <span class="kicker"><span class="d"></span> Open Source · MIT · core v0.5 &amp; Panel v1</span>
+        <span class="kicker"><span class="d"></span> Open Source · MIT · core v0.5 &amp; Panel v1.1</span>
         <h1>EPISTEMOS</h1>
         <p class="lead">Turn information into auditable knowledge.</p>
         <p class="sub">A sovereign, local-first engine and operational panel for context, memory, provenance, claims and decision lineage. Bitemporal, explainable, zero egress, with no mandatory LLM and zero runtime dependencies.</p>
@@ -324,6 +324,7 @@
           <div class="card"><h3>Local first, zero egress</h3><p>Binds to localhost, needs no cloud, and a strict default-src self policy blocks any external font, script, image or beacon.</p></div>
           <div class="card"><h3>Leak invariants at zero</h3><p>PRIVATE_UI, PRIVATE_GRAPH, PRIVATE_SEARCH and PRIVATE_STREAM leak, all measured at zero across the boundary tests.</p></div>
         </div>
+        <p class="note">Panel v1.1 is an adversarially validated hardening pass. Time travel no longer leaks the future (an as-of view reconstructs state only from events up to that instant); the HTTP boundary is proofed against request smuggling and malformed input; the interface renders untrusted content inertly. Verified by a panel-boundary mutation suite, a concurrency battery and a crash-and-rebuild recovery test. It is hardened, not a claim of zero vulnerabilities.</p>
       </div>
     </section>
 
@@ -351,9 +352,9 @@
         <div class="metrics">
           <div class="metric"><div class="big">~183x</div><div class="lbl">100k lexical search, 6.2 s to 34 ms, via the FTS index</div></div>
           <div class="metric"><div class="big">~33,800x</div><div class="lbl">explain() provenance at 100k, about 1.9 s to 0.05 ms</div></div>
-          <div class="metric"><div class="big">877</div><div class="lbl">tests green, 855 core and 22 panel, ruff and mypy strict clean</div></div>
+          <div class="metric"><div class="big">928</div><div class="lbl">tests green, ruff and mypy strict clean, across core and panel</div></div>
         </div>
-        <p class="note">Mutation 39 of 39 killed on the claim core. Adversarially audited across every release. The core makes no network calls and needs no LLM. Numbers are reproducible with the benchmark scripts in the repository.</p>
+        <p class="note">Mutation 39 of 39 killed on the claim core, and 9 of 9 on the panel boundaries. The panel read model is 3 to 5 times faster on aggregate views after a single pass rewrite, measured at ten thousand objects with identical results. Accessibility meets WCAG AA and the layout holds from 320 to 1920 pixels. The core makes no network calls and needs no LLM. Numbers are reproducible with the scripts in the repository.</p>
       </div>
     </section>
 

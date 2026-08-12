@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="EPISTEMOS is sovereign context, memory and provenance infrastructure for AI agents. Bitemporal memory, tamper-evident provenance and explainable retrieval. Local-first, zero-egress, no mandatory LLM, zero runtime dependencies.">
+  <meta name="description" content="EPISTEMOS turns information into auditable knowledge. A local-first, zero-egress engine and operational panel for context, memory, provenance, claims and decision lineage. Bitemporal, explainable, no mandatory LLM, zero runtime dependencies. MIT.">
   <meta name="author" content="Voltolini">
   <meta name="theme-color" content="#0B0E17">
   <link rel="canonical" href="https://voltolini.space/epistemos/">
   <link rel="icon" href="../assets/epistemos-favicon.svg" type="image/svg+xml">
-  <meta property="og:title" content="EPISTEMOS. Sovereign Context, Memory & Provenance for AI Agents.">
-  <meta property="og:description" content="Bitemporal memory, tamper-evident provenance and explainable retrieval for any agent or runtime. Local-first, zero-egress, no mandatory LLM.">
+  <meta property="og:title" content="EPISTEMOS. Turn information into auditable knowledge.">
+  <meta property="og:description" content="A local-first, zero-egress engine and operational panel for context, memory, provenance, claims and decision lineage. Bitemporal, explainable, no mandatory LLM.">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="en_US">
   <meta property="og:site_name" content="voltolini.space">
@@ -17,12 +17,12 @@
   <meta property="og:image" content="https://voltolini.space/assets/epistemos-og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="EPISTEMOS. Sovereign context, memory and provenance for AI agents.">
+  <meta property="og:image:alt" content="EPISTEMOS. Turn information into auditable knowledge.">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="EPISTEMOS. Sovereign Context, Memory & Provenance for AI Agents.">
-  <meta name="twitter:description" content="Bitemporal memory, tamper-evident provenance and explainable retrieval. Local-first, zero-egress, no mandatory LLM.">
+  <meta name="twitter:title" content="EPISTEMOS. Turn information into auditable knowledge.">
+  <meta name="twitter:description" content="A local-first, zero-egress engine and operational panel for context, memory, provenance, claims and decision lineage. Bitemporal, explainable, no mandatory LLM.">
   <meta name="twitter:image" content="https://voltolini.space/assets/epistemos-og.png">
-  <title>EPISTEMOS · Sovereign Context, Memory & Provenance for AI Agents</title>
+  <title>EPISTEMOS · Turn information into auditable knowledge</title>
   <script>
     /* shared voltolini.space theme: dark by default, visitor choice wins */
     var _t = 'escuro';
@@ -36,16 +36,18 @@
     @font-face { font-family:'JetBrains Mono'; font-weight:500; font-display:swap; src:url('../assets/fonts/jbmono.woff2') format('woff2'); }
 
     :root{
-      --ink:#FBFBFD; --surface:#FFFFFF; --text:#12141C; --title:#0B0E17; --muted:#565C6E;
+      --ink:#FBFBFD; --surface:#FFFFFF; --surface-2:#F5F6FB; --text:#12141C; --title:#0B0E17; --muted:#565C6E;
       --primary:#3A40B8; --primary-strong:#4A50C4; --amber:#B8791E; --amber-dot:#E0A63C;
+      --green:#1E8E5A; --red:#C0442E;
       --line:rgba(18,20,28,.12); --chip:#F3F4FA; --code-bg:#F5F6FB;
       --sans:'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
       --mono:'JetBrains Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
       --maxw:1120px;
     }
     :root[data-tema="escuro"]{
-      --ink:#0B0E17; --surface:#151A28; --text:#EAECF4; --title:#F4F6FC; --muted:#98A2BD;
+      --ink:#0B0E17; --surface:#151A28; --surface-2:#10141F; --text:#EAECF4; --title:#F4F6FC; --muted:#98A2BD;
       --primary:#8B93FF; --primary-strong:#8B93FF; --amber:#F0B54A; --amber-dot:#F0B54A;
+      --green:#57D9A0; --red:#F0876A;
       --line:rgba(139,147,255,.16); --chip:#151A28; --code-bg:#10141F;
     }
     @media (prefers-color-scheme: light){ :root:not([data-tema]){
@@ -53,10 +55,11 @@
     }}
 
     *{ box-sizing:border-box; }
-    html{ scroll-behavior:smooth; }
+    html{ scroll-behavior:smooth; overflow-x:clip; }
     @media (prefers-reduced-motion: reduce){ html{ scroll-behavior:auto; } *{ transition:none !important; animation:none !important; } }
     body{ margin:0; background:var(--ink); color:var(--text); font-family:var(--sans);
       font-size:16px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+    img { max-width:100%; height:auto; }
     a{ color:var(--primary); text-decoration:none; }
     a:hover{ text-decoration:underline; }
     :focus-visible{ outline:2px solid var(--amber-dot); outline-offset:3px; border-radius:4px; }
@@ -78,29 +81,35 @@
       background:var(--primary-strong); color:#fff; font-weight:600; font-size:14px; }
     .ghbtn:hover{ text-decoration:none; filter:brightness(1.06); }
     .tgl{ background:none; border:1px solid var(--line); color:var(--muted); border-radius:999px; width:36px; height:36px; cursor:pointer; font-size:15px; }
-    @media (max-width:760px){ nav.links{ display:none; } }
+    @media (max-width:820px){ nav.links{ display:none; } }
 
     /* hero */
-    .hero{ position:relative; overflow:hidden; padding:78px 0 64px; border-bottom:1px solid var(--line); }
+    .hero{ position:relative; overflow:hidden; padding:74px 0 30px; }
     .hero .strata{ position:absolute; inset:0; opacity:.5; pointer-events:none; }
     .kicker{ display:inline-flex; align-items:center; gap:8px; font-family:var(--mono); font-size:13px;
       color:var(--muted); border:1px solid var(--line); border-radius:999px; padding:6px 13px; }
     .kicker .d{ width:7px; height:7px; border-radius:50%; background:var(--amber-dot); }
-    h1{ font-size:clamp(40px,7vw,72px); font-weight:800; margin:22px 0 10px; }
-    .lead{ font-size:clamp(19px,2.4vw,25px); color:var(--primary); font-weight:600; margin:0 0 10px; max-width:20ch; }
-    .sub{ font-size:17.5px; color:var(--muted); max-width:60ch; margin:0 0 30px; }
+    h1{ font-size:clamp(40px,7vw,74px); font-weight:800; margin:22px 0 12px; }
+    .lead{ font-size:clamp(19px,2.4vw,26px); color:var(--primary); font-weight:600; margin:0 0 12px; max-width:22ch; }
+    .sub{ font-size:17.5px; color:var(--muted); max-width:62ch; margin:0 0 30px; }
     .cta{ display:flex; flex-wrap:wrap; gap:12px; }
     .btn{ display:inline-flex; align-items:center; gap:9px; padding:12px 22px; border-radius:999px; font-weight:600; font-size:15px; }
     .btn.p{ background:var(--primary-strong); color:#fff; }
     .btn.s{ border:1px solid var(--line); color:var(--text); background:var(--surface); }
     .btn:hover{ text-decoration:none; }
-    .heromark{ position:absolute; right:-40px; top:50%; transform:translateY(-50%); width:min(42vw,420px); opacity:.9; }
-    @media (max-width:900px){ .heromark{ display:none; } }
 
-    section{ padding:64px 0; border-bottom:1px solid var(--line); }
+    /* hero shot */
+    .heroshot{ margin:44px auto 0; max-width:var(--maxw); padding:0 24px; }
+    .frame{ border:1px solid var(--line); border-radius:16px; overflow:hidden; background:var(--surface-2);
+      box-shadow:0 30px 80px -40px rgba(0,0,0,.6); }
+    .frame img{ display:block; width:100%; height:auto; }
+    .figcap{ color:var(--muted); font-size:13.5px; margin:12px 2px 0; text-align:center; }
+
+    section{ padding:60px 0; border-top:1px solid var(--line); }
     .eyebrow{ font-family:var(--mono); font-size:12.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--amber); margin:0 0 10px; }
-    h2{ font-size:clamp(26px,3.6vw,36px); font-weight:700; margin:0 0 14px; }
+    h2{ font-size:clamp(26px,3.6vw,37px); font-weight:700; margin:0 0 14px; }
     .say{ color:var(--muted); max-width:66ch; font-size:17px; }
+
     .grid{ display:grid; gap:18px; margin-top:28px; }
     .g3{ grid-template-columns:repeat(3,1fr); }
     .g2{ grid-template-columns:repeat(2,1fr); }
@@ -109,41 +118,47 @@
     .card{ border:1px solid var(--line); border-radius:16px; padding:22px; background:var(--surface); }
     .card h3{ font-size:18px; margin:12px 0 7px; display:flex; align-items:center; gap:10px; }
     .card p{ margin:0; font-size:15px; color:var(--muted); }
-    .ic{ width:34px; height:34px; border-radius:10px; background:var(--chip); display:flex; align-items:center; justify-content:center; }
-    .ic svg{ width:19px; height:19px; }
+    .ic{ width:34px; height:34px; border-radius:10px; background:var(--chip); display:flex; align-items:center; justify-content:center; font-size:18px; }
 
-    .flow{ display:flex; flex-wrap:wrap; align-items:stretch; gap:14px; margin-top:26px; }
-    .node{ flex:1 1 190px; border:1px solid var(--line); border-radius:14px; padding:16px 18px; background:var(--surface); }
-    .node b{ color:var(--title); display:block; font-size:15.5px; }
-    .node span{ color:var(--muted); font-size:13.5px; }
-    .arrow{ align-self:center; color:var(--primary); font-weight:700; }
-    @media (max-width:720px){ .arrow{ transform:rotate(90deg); } }
+    /* split feature + shot */
+    .split{ display:grid; grid-template-columns:1fr 1.15fr; gap:34px; align-items:center; margin-top:30px; }
+    .split.rev{ grid-template-columns:1.15fr 1fr; }
+    .split.rev .txt{ order:2; }
+    @media (max-width:840px){ .split, .split.rev{ grid-template-columns:1fr; } .split.rev .txt{ order:0; } }
+    .split h3{ font-size:22px; margin:0 0 12px; }
+    .split p{ color:var(--muted); font-size:16px; margin:0 0 14px; }
+    ul.tick{ list-style:none; padding:0; margin:14px 0 0; display:grid; gap:9px; }
+    ul.tick li{ position:relative; padding-left:26px; color:var(--text); font-size:15.5px; }
+    ul.tick li::before{ content:"+"; position:absolute; left:4px; color:var(--amber); font-weight:800; }
 
-    .lineage{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:24px; font-family:var(--mono); font-size:14px; }
+    .lineage{ display:flex; flex-wrap:wrap; align-items:center; gap:10px; margin-top:22px; font-family:var(--mono); font-size:14px; }
     .lineage .p{ padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--text); }
     .lineage .p.now{ border-color:var(--amber-dot); color:var(--amber); }
+    .lineage .p.dis{ border-color:var(--red); color:var(--red); }
     .lineage .to{ color:var(--muted); }
 
-    .tri{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:26px; }
-    @media (max-width:720px){ .tri{ grid-template-columns:1fr; } }
-    .tri .t{ border:1px solid var(--line); border-radius:14px; padding:20px; background:var(--surface); }
-    .tri .t .q{ font-family:var(--mono); font-size:13px; color:var(--amber); }
-    .tri .t .a{ font-size:16px; color:var(--text); margin-top:8px; }
+    .flow{ display:flex; flex-wrap:wrap; align-items:stretch; gap:14px; margin-top:26px; }
+    .node{ flex:1 1 200px; border:1px solid var(--line); border-radius:14px; padding:16px 18px; background:var(--surface); }
+    .node b{ color:var(--title); display:block; font-size:15.5px; }
+    .node span{ color:var(--muted); font-size:13.5px; }
+    .node small{ color:var(--muted); font-size:12px; font-family:var(--mono); display:block; margin-top:6px; }
+    .arrow{ align-self:center; color:var(--primary); font-weight:700; }
+    @media (max-width:720px){ .arrow{ transform:rotate(90deg); } }
 
     .metrics{ display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:26px; }
     @media (max-width:720px){ .metrics{ grid-template-columns:1fr; } }
     .metric{ border:1px solid var(--line); border-radius:16px; padding:22px; background:var(--surface); }
-    .metric .big{ font-size:34px; font-weight:800; color:var(--title); font-family:var(--mono); letter-spacing:-.02em; }
+    .metric .big{ font-size:32px; font-weight:800; color:var(--title); font-family:var(--mono); letter-spacing:-.02em; }
     .metric .lbl{ color:var(--muted); font-size:14px; margin-top:4px; }
     .note{ color:var(--muted); font-size:13.5px; margin-top:14px; }
 
     pre{ background:var(--code-bg); border:1px solid var(--line); border-radius:14px; padding:18px 20px; overflow-x:auto; }
     code{ font-family:var(--mono); font-size:13.5px; color:var(--text); }
-    ul.chk{ list-style:none; padding:0; margin:22px 0 0; display:grid; gap:10px; }
-    ul.chk li{ position:relative; padding-left:28px; color:var(--text); }
-    ul.chk li::before{ content:"+"; position:absolute; left:4px; color:var(--amber); font-weight:800; }
 
-    footer{ padding:40px 0 56px; }
+    .mobilepair{ display:flex; gap:18px; justify-content:center; flex-wrap:wrap; margin-top:26px; }
+    .mobilepair .frame{ width:270px; }
+
+    footer{ padding:40px 0 56px; border-top:1px solid var(--line); }
     .foot{ display:flex; flex-wrap:wrap; gap:16px 28px; align-items:center; color:var(--muted); font-size:14px; }
     .foot a{ color:var(--muted); }
     .foot a:hover{ color:var(--text); }
@@ -162,8 +177,9 @@
         EPISTEMOS
       </a>
       <nav class="links" aria-label="Sections">
-        <a href="#why">Why</a><a href="#what">Capabilities</a><a href="#how">How</a>
-        <a href="#performance">Performance</a><a href="#security">Security</a><a href="#developer">Developer</a>
+        <a href="#problem">Problem</a><a href="#panel">Panel</a><a href="#belief">Belief</a>
+        <a href="#time">Time</a><a href="#security">Security</a><a href="#architecture">Architecture</a>
+        <a href="#developers">Developers</a>
       </nav>
       <a class="ghbtn" href="https://github.com/Voltolini-SPACE/epistemos">GitHub</a>
       <button class="tgl" id="tgl" type="button" aria-label="Toggle light or dark theme">◐</button>
@@ -171,149 +187,198 @@
   </header>
 
   <main id="main">
-    <section class="hero">
+    <section class="hero" style="border-top:none">
       <svg class="strata" viewBox="0 0 1200 400" preserveAspectRatio="xMaxYMid slice" aria-hidden="true">
         <g stroke="#8B93FF" stroke-width="2" opacity="0.10">
           <path d="M700 60 H1180"/><path d="M700 120 H1120"/><path d="M700 180 H1200"/>
           <path d="M700 240 H1090"/><path d="M700 300 H1160"/><path d="M700 360 H1110"/></g>
       </svg>
       <div class="wrap">
-        <span class="kicker"><span class="d"></span> developer preview · v0.4.0 · Open Source · MIT</span>
+        <span class="kicker"><span class="d"></span> Open Source · MIT · core v0.5 &amp; Panel v1</span>
         <h1>EPISTEMOS</h1>
-        <p class="lead">Sovereign Context, Memory &amp; Provenance Infrastructure for AI Agents.</p>
-        <p class="sub">Persistent temporal memory, explainable knowledge and decision lineage for any agent or runtime. Local-first, zero-egress, no mandatory LLM, zero runtime dependencies.</p>
+        <p class="lead">Turn information into auditable knowledge.</p>
+        <p class="sub">A sovereign, local-first engine and operational panel for context, memory, provenance, claims and decision lineage. Bitemporal, explainable, zero egress, with no mandatory LLM and zero runtime dependencies.</p>
         <div class="cta">
           <a class="btn p" href="https://github.com/Voltolini-SPACE/epistemos">View on GitHub</a>
-          <a class="btn s" href="https://github.com/Voltolini-SPACE/epistemos/tree/main/docs/adr">Read the Architecture</a>
+          <a class="btn s" href="#quickstart">Quick Start</a>
         </div>
       </div>
-      <svg class="heromark" viewBox="0 0 48 60" fill="none" aria-hidden="true">
-        <g stroke="#8B93FF" stroke-width="3.4" stroke-linecap="round">
-          <path d="M15 8 V52"/><path d="M15 12 H36"/><path d="M15 30 H44"/><path d="M15 48 H38"/></g>
-        <circle cx="15" cy="12" r="2.8" fill="#8B93FF"/><circle cx="15" cy="48" r="2.8" fill="#8B93FF"/>
-        <circle cx="15" cy="30" r="3.8" fill="#F0B54A"/>
-      </svg>
     </section>
 
-    <section id="why">
+    <div class="heroshot">
+      <div class="frame">
+        <img src="../assets/epistemos/02-overview.jpg" width="1760" height="1100"
+             alt="EPISTEMOS Panel showing Knowledge Pulse: live counts of knowledge objects, active claims, evidence relations and disputes, a belief distribution chart and a live activity stream of real ledger events.">
+      </div>
+      <p class="figcap">The EPISTEMOS Panel. A live, authorized view of what the system knows. Real data, local-first, zero egress.</p>
+    </div>
+
+    <section id="problem">
       <div class="wrap">
-        <p class="eyebrow">Why EPISTEMOS</p>
-        <h2>Knowledge you can trust, through time.</h2>
-        <p class="say">Agent memory today couples knowledge to one LLM, vendor or vector database, mutates state in place so history is lost, severs provenance at ingest, and treats memory as a plain database rather than context replayed into a model. EPISTEMOS takes the opposite stance. Its source of truth is an append only, hash chained event ledger, and every fact knows when it was true, when it was believed, and where it came from. You keep your knowledge. It stays local, auditable and portable.</p>
+        <p class="eyebrow">The problem</p>
+        <h2>Information is easy. Knowledge is accountable.</h2>
+        <p class="say">Agents and pipelines produce information all day. Knowledge is different: it needs provenance, evidence, review, a sense of time, and governance over who can see and accept what. Most agent memory couples knowledge to one model or vector store, mutates state in place so history is lost, severs provenance at ingest, and collapses truth into a single confidence score. EPISTEMOS takes the opposite stance. Its source of truth is an append only, hash chained ledger. Every fact knows when it was true, when it was believed, and where it came from. Contribution is never silently treated as truth.</p>
       </div>
     </section>
 
-    <section id="what">
+    <section id="product">
       <div class="wrap">
-        <p class="eyebrow">What it provides</p>
-        <h2>Six capabilities, one sovereign layer.</h2>
+        <p class="eyebrow">The product</p>
+        <h2>Operational infrastructure for auditable knowledge.</h2>
+        <p class="say">EPISTEMOS is a small, dependency free engine with a clear vocabulary, plus a panel that makes that knowledge visible and explorable. Five things are kept distinct, on purpose.</p>
         <div class="grid g3">
-          <div class="card"><div class="ic">🕓</div><h3>Temporal memory</h3><p>Bitemporal facts carry valid time (true in the world) and transaction time (believed by the system). Ask what you knew at any point, correct the past without losing it.</p></div>
-          <div class="card"><div class="ic">🕸️</div><h3>Knowledge graph</h3><p>Entities and relations are first class, queried through typed methods. No query language to inject into.</p></div>
-          <div class="card"><div class="ic">🔗</div><h3>Provenance</h3><p>A tamper evident, hash chained ledger. Every fact answers where did this come from, from source to derived fact.</p></div>
-          <div class="card"><div class="ic">⚖️</div><h3>Decision lineage</h3><p>Decisions record their evidence. Ask what led to this, and get the facts and sources that supported it.</p></div>
-          <div class="card"><div class="ic">🔍</div><h3>Explainable retrieval</h3><p>Every result reports its score components and a plain reason. No opaque similarity number.</p></div>
-          <div class="card"><div class="ic">🛡️</div><h3>Multi tenant isolation</h3><p>Tenant, agent and namespace on every read and write. Unknown scope, auth or integrity is refused, fail closed.</p></div>
+          <div class="card"><div class="ic">◇</div><h3>Claim</h3><p>An assertion someone made. It exists whether or not anyone believes it, and it carries who claimed it.</p></div>
+          <div class="card"><div class="ic">◈</div><h3>Evidence</h3><p>Typed support or challenge, attached with a relation: supports, contradicts, weakens, derived from.</p></div>
+          <div class="card"><div class="ic">◎</div><h3>Review</h3><p>An individual judgement, confirm or dispute, preserved separately. A majority does not overwrite a minority.</p></div>
+          <div class="card"><div class="ic">✓</div><h3>Accepted knowledge</h3><p>A governed state, reached through a policy port. Acceptance is recorded, and a coexisting dispute is not erased.</p></div>
+          <div class="card"><div class="ic">⚖</div><h3>Decision</h3><p>An action taken, linked to the evidence that led to it. Ask what led to this and get the lineage back.</p></div>
+          <div class="card"><div class="ic">↻</div><h3>Belief</h3><p>Never stored. It is derived from evidence and reviews at read time, so it can never drift out of sync.</p></div>
         </div>
       </div>
     </section>
 
-    <section id="how">
+    <section id="panel">
       <div class="wrap">
-        <p class="eyebrow">How it works</p>
-        <h2>A knowledge plane any runtime can use.</h2>
-        <p class="say">The core depends only on ports, never on a specific model, graph DB or vector DB. State is a rebuildable projection of the ledger.</p>
-        <div class="flow">
-          <div class="node"><b>Agent / Runtime</b><span>Claude, OpenAI, MCP, custom</span></div>
-          <div class="arrow" aria-hidden="true">&rarr;</div>
-          <div class="node"><b>EPISTEMOS</b><span>context, memory, provenance</span></div>
-          <div class="arrow" aria-hidden="true">&rarr;</div>
-          <div class="node"><b>Storage / Index</b><span>SQLite or in memory, rebuildable</span></div>
+        <p class="eyebrow">EPISTEMOS Panel</p>
+        <h2>See the knowledge, and how it is authorized.</h2>
+        <p class="say">The Panel is the official operational interface over the engine. It is a read only consumer: authorization stays in the core, the browser grants nothing, and a strict content security policy keeps it zero egress. Pure standard library and vanilla JavaScript, with no framework, no npm and no CDN. Every screenshot here is the real product on a real corpus.</p>
+
+        <div class="split">
+          <div class="txt">
+            <h3>Knowledge graph explorer</h3>
+            <p>A canvas force layout of typed nodes and their relations: claim, evidence, review, decision, source, entity and fact. It ships with level of detail, viewport culling, keyboard navigation and an accessible list view. You only ever see nodes and edges you are authorized to read.</p>
+          </div>
+          <div class="frame">
+            <img src="../assets/epistemos/03-graph.jpg" width="1760" height="1100" loading="lazy"
+                 alt="Knowledge graph explorer with colored typed nodes for claims, evidence, reviews, decisions, sources, entities and facts, connected by relation edges, with a legend and filter controls.">
+          </div>
+        </div>
+
+        <div class="split rev">
+          <div class="frame">
+            <img src="../assets/epistemos/04-claims.jpg" width="1760" height="1100" loading="lazy"
+                 alt="Claim center table listing claims with their claimant, derived belief state (proposed, supported, disputed, accepted, retracted), status and knowledge space.">
+          </div>
+          <div class="txt">
+            <h3>Claim center</h3>
+            <p>Every claim with its derived belief state: proposed, supported, disputed, accepted or retracted. The claimant is kept separate from the agent that ingested it and from the source it cites, so contribution is never confused with truth.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="runtimes">
+    <section id="belief">
       <div class="wrap">
-        <p class="eyebrow">Works with any runtime</p>
-        <h2>Model agnostic and agent agnostic.</h2>
-        <p class="say">Use EPISTEMOS from a Python SDK, a localhost REST API, or a hostile boundary MCP server. It is designed to integrate with governance and runtime systems as a consumer, never as an owner of the core.</p>
-        <div class="grid g3" style="margin-top:22px">
-          <div class="card"><h3>NOMOS</h3><p>Governance. Designed to integrate with, adapter ready. NOMOS decides what an agent may do, EPISTEMOS records what the system knows.</p></div>
-          <div class="card"><h3>Hermes</h3><p>Runtime and agents. Planned adapter. EPISTEMOS stays substitutable.</p></div>
-          <div class="card"><h3>OpenClaw</h3><p>External runtime. Planned adapter via SDK, REST or governed MCP.</p></div>
-          <div class="card"><h3>MCP runtimes</h3><p>A fixed, narrow tool allow list. No execute, eval or raw query tools. Identity is server side.</p></div>
-          <div class="card"><h3>Claude / OpenAI agents</h3><p>Any LLM based agent is a client. The core needs no model to run.</p></div>
-          <div class="card"><h3>Custom agents</h3><p>Own your memory behind a stable, documented API. Export everything as a versioned event log.</p></div>
-        </div>
-        <p class="note">Integrations are planned or adapter ready. EPISTEMOS never grants a capability, it provides context, facts, history and evidence.</p>
-      </div>
-    </section>
-
-    <section id="temporal">
-      <div class="wrap">
-        <p class="eyebrow">Temporal intelligence</p>
-        <h2>What was true, what was believed, and what we believe now about the past.</h2>
-        <p class="say">Bitemporality keeps three questions separate, so knowledge is accountable and reconstructable.</p>
-        <div class="tri">
-          <div class="t"><div class="q">valid time</div><div class="a">What was true in the world, over an interval, independent of when the system learned it.</div></div>
-          <div class="t"><div class="q">transaction time</div><div class="a">What the system believed at a given moment. Corrections do not erase prior belief.</div></div>
-          <div class="t"><div class="q">as of now, about then</div><div class="a">What we believe today about a past instant, after later corrections. Reconstructable at any point.</div></div>
+        <p class="eyebrow">Belief and explainability</p>
+        <h2>Why is this believed? Not because an AI said so.</h2>
+        <p class="say">EPISTEMOS does not reduce truth to a model confidence score. Belief is decomposed into the evidence for and against a claim and the individual reviews of it, and then derived. When positions coexist, both are preserved. A majority is not truth.</p>
+        <div class="split">
+          <div class="txt">
+            <h3>A disputed claim, in full</h3>
+            <p>Two documents support the claim that Company X acquired Company Y. A press denial contradicts it. One reviewer confirms, another disputes. The result is a derived, disputed belief with both positions intact, not a number that hides the conflict.</p>
+            <div class="lineage" role="img" aria-label="From claim through evidence and review to a derived, disputed belief">
+              <span class="p">Claim</span><span class="to">&rarr;</span>
+              <span class="p">Evidence</span><span class="to">&rarr;</span>
+              <span class="p">Review</span><span class="to">&rarr;</span>
+              <span class="p dis">Disputed</span>
+            </div>
+          </div>
+          <div class="frame">
+            <img src="../assets/epistemos/10-claim-detail.jpg" width="1760" height="1100" loading="lazy"
+                 alt="Claim detail panel for Company X acquired Company Y marked disputed, showing claimant, ingesting agent, source and times, then a Why this belief section listing supporting and contradicting evidence and confirm and dispute reviews.">
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="provenance">
+    <section id="time">
       <div class="wrap">
-        <p class="eyebrow">Provenance</p>
-        <h2>Every fact traces back to its source.</h2>
-        <p class="say">A hash chained ledger anchors a genealogy you can walk with a single call, explain(fact) and explain(decision).</p>
-        <div class="lineage" role="img" aria-label="Provenance chain from source to decision">
-          <span class="p">Source</span><span class="to">&rarr;</span>
-          <span class="p">Observation</span><span class="to">&rarr;</span>
-          <span class="p">Fact</span><span class="to">&rarr;</span>
-          <span class="p">Derived fact</span><span class="to">&rarr;</span>
-          <span class="p now">Decision</span>
+        <p class="eyebrow">Time</p>
+        <h2>Go back and ask what the system knew then.</h2>
+        <p class="say">Every fact carries valid time, when it was true in the world, and transaction time, when the system believed it. The timeline replays the real bitemporal ledger, and time travel reconstructs any past instant. Corrections never erase prior belief.</p>
+        <div class="split rev">
+          <div class="frame">
+            <img src="../assets/epistemos/05-timeline.jpg" width="1760" height="1100" loading="lazy"
+                 alt="Timeline view with a time travel control and a chronological stream of typed ledger events such as evidence created, claim created, review created, decision created and knowledge accepted, each with its actor.">
+          </div>
+          <div class="txt">
+            <h3>Bitemporal by construction</h3>
+            <ul class="tick">
+              <li><strong>Valid time.</strong> What was true in the world, over an interval.</li>
+              <li><strong>Transaction time.</strong> What the system believed, at a moment.</li>
+              <li><strong>As of then.</strong> Reconstruct any past instant, after later corrections.</li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </section>
-
-    <section id="performance">
-      <div class="wrap">
-        <p class="eyebrow">Performance</p>
-        <h2>Fast where it counts, reproducible by design.</h2>
-        <p class="say">Measured on the reference hardware, reproducible from the repository. The O(N) scan is kept as a correctness reference and a safe fallback.</p>
-        <div class="metrics">
-          <div class="metric"><div class="big">~183x</div><div class="lbl">100k lexical search: 6.2 s to 34 ms (FTS5 index, v0.2)</div></div>
-          <div class="metric"><div class="big">~33,800x</div><div class="lbl">explain() provenance at 100k: 1.9 s to about 0.05 ms (v0.3)</div></div>
-          <div class="metric"><div class="big">~0.4 ms</div><div class="lbl">write latency, roughly flat with scale</div></div>
-        </div>
-        <p class="note">780 tests, mutation 32 of 32 killed, ruff and mypy strict clean, adversarially audited. Numbers are reproducible with the benchmark scripts in the repository.</p>
       </div>
     </section>
 
     <section id="security">
       <div class="wrap">
-        <p class="eyebrow">Security &amp; sovereignty</p>
-        <h2>Local first, by construction.</h2>
-        <ul class="chk">
-          <li><strong>Local first.</strong> Runs from a single local file. No server required.</li>
-          <li><strong>Zero egress by default.</strong> The core makes no network calls. Proven by test.</li>
-          <li><strong>No mandatory LLM.</strong> A null model provider proves the core runs with no model at all.</li>
-          <li><strong>Tenant and agent isolation.</strong> Fail closed on unknown scope, auth, source, schema or integrity.</li>
-          <li><strong>Tamper evident ledger.</strong> A hash chain detects edits, reorders and truncation.</li>
-          <li><strong>Zero runtime dependencies.</strong> Standard library only. No runtime supply chain.</li>
-        </ul>
+        <p class="eyebrow">Security and governance</p>
+        <h2>Private data never reaches an unauthorized screen.</h2>
+        <p class="say">Every surface in the Panel is gated by one predicate in the core, is_readable(principal, object). Nothing a principal cannot read is placed in a response: not a listing, a graph node, a search hit, a timeline entry, or the live stream. The stream is filtered at the source and carries a redacted envelope, never a raw payload. This is proven, not asserted, by a private leak battery and a full stack HTTP boundary test.</p>
+        <div class="grid g2" style="margin-top:22px">
+          <div class="card"><h3>Authorized by construction</h3><p>Identity, tenant, namespace, space and capability, checked in the core and failing closed. The browser is a consumer and grants no authority.</p></div>
+          <div class="card"><h3>Server side filtering</h3><p>Private events are dropped before they leave the server. The browser cannot hide what it never received.</p></div>
+          <div class="card"><h3>Local first, zero egress</h3><p>Binds to localhost, needs no cloud, and a strict default-src self policy blocks any external font, script, image or beacon.</p></div>
+          <div class="card"><h3>Leak invariants at zero</h3><p>PRIVATE_UI, PRIVATE_GRAPH, PRIVATE_SEARCH and PRIVATE_STREAM leak, all measured at zero across the boundary tests.</p></div>
+        </div>
       </div>
     </section>
 
-    <section id="developer">
+    <section id="architecture">
       <div class="wrap">
-        <p class="eyebrow">Developer</p>
-        <h2>Try it in a minute.</h2>
-        <pre><code>pip install -e ".[dev]"        # zero runtime deps
-python examples/quickstart.py  # no model, no network
+        <p class="eyebrow">Architecture</p>
+        <h2>Core, boundary, panel. Authority stays in the core.</h2>
+        <p class="say">Three layers with one direction of trust. The core owns the truth and the authorization. A thin boundary exposes an authorized read model and a server filtered event stream. The panel is an untrusted browser consumer.</p>
+        <div class="flow">
+          <div class="node"><b>Core</b><span>engine, ledger, spaces firewall</span><small>owns truth &amp; authorization</small></div>
+          <div class="arrow" aria-hidden="true">&rarr;</div>
+          <div class="node"><b>API and event boundary</b><span>authorized read model, filtered SSE</span><small>gated by is_readable()</small></div>
+          <div class="arrow" aria-hidden="true">&rarr;</div>
+          <div class="node"><b>Panel</b><span>browser consumer</span><small>read only, grants nothing</small></div>
+        </div>
+        <p class="note">The core depends only on ports, never on a specific model, graph database or vector database. Its state is a rebuildable projection of the ledger. See the architecture decision records on GitHub, ADR-030 through ADR-032.</p>
+      </div>
+    </section>
 
+    <section id="performance">
+      <div class="wrap">
+        <p class="eyebrow">Performance and rigor</p>
+        <h2>Fast where it counts, reproducible by design.</h2>
+        <p class="say">Measured on reference hardware and reproducible from the repository. The linear scan is kept as a correctness reference and a safe fallback.</p>
+        <div class="metrics">
+          <div class="metric"><div class="big">~183x</div><div class="lbl">100k lexical search, 6.2 s to 34 ms, via the FTS index</div></div>
+          <div class="metric"><div class="big">~33,800x</div><div class="lbl">explain() provenance at 100k, about 1.9 s to 0.05 ms</div></div>
+          <div class="metric"><div class="big">877</div><div class="lbl">tests green, 855 core and 22 panel, ruff and mypy strict clean</div></div>
+        </div>
+        <p class="note">Mutation 39 of 39 killed on the claim core. Adversarially audited across every release. The core makes no network calls and needs no LLM. Numbers are reproducible with the benchmark scripts in the repository.</p>
+      </div>
+    </section>
+
+    <section id="developers">
+      <div class="wrap">
+        <p class="eyebrow">Developers and integration</p>
+        <h2>Own your knowledge behind a stable API.</h2>
+        <p class="say">Use EPISTEMOS from a Python SDK today. It is model agnostic and agent agnostic: any LLM based agent is a client, and the core needs no model to run. It is designed to be used by governance and runtime systems as a consumer, never as an owner of the core. Adapters for external systems are planned, and nothing here promises an integration that does not exist yet.</p>
+        <div class="split" id="quickstart">
+          <div class="txt">
+            <h3>Run the Panel in a minute</h3>
+            <p>Clone the repository, install with zero runtime dependencies, and open the Panel on a real demo corpus. It runs fully offline.</p>
+            <div class="cta" style="margin-top:18px">
+              <a class="btn p" href="https://github.com/Voltolini-SPACE/epistemos">GitHub repository</a>
+              <a class="btn s" href="https://github.com/Voltolini-SPACE/epistemos/releases">Releases</a>
+            </div>
+          </div>
+          <div>
+<pre><code>git clone https://github.com/Voltolini-SPACE/epistemos
+cd epistemos
+pip install -e ".[dev]"          # zero runtime deps
+
+python -m epistemos.panel --demo # opens http://127.0.0.1:8787/
+
+# or use the engine directly
 from epistemos import Engine, Principal
 eng = Engine.open("knowledge.epistemos")   # one local file
 ctx = Principal(tenant="acme", agent="claude", namespace="hr")
@@ -321,9 +386,30 @@ eng.assert_fact(ctx, subject="Alice", predicate="works_at",
                 object="Acme", valid_from="2026-01-01")
 eng.current(ctx, subject="Alice", predicate="works_at")   # "Acme"
 eng.explain(ctx, fact_id)                                 # provenance genealogy</code></pre>
+          </div>
+        </div>
+        <div class="mobilepair">
+          <div class="frame">
+            <img src="../assets/epistemos/12-mobile-overview.jpg" width="351" height="760" loading="lazy"
+                 alt="EPISTEMOS Panel on a phone screen, showing the Knowledge Pulse metrics stacked vertically with a bottom navigation bar.">
+          </div>
+          <div class="frame">
+            <img src="../assets/epistemos/13-mobile-graph.jpg" width="351" height="760" loading="lazy"
+                 alt="EPISTEMOS Panel knowledge graph on a phone screen, with the typed node graph and a bottom navigation bar.">
+          </div>
+        </div>
+        <p class="figcap">Responsive. Full desktop workstation, touch friendly on mobile.</p>
+      </div>
+    </section>
+
+    <section id="opensource">
+      <div class="wrap">
+        <p class="eyebrow">Open source</p>
+        <h2>MIT, clean room, zero runtime dependencies.</h2>
+        <p class="say">EPISTEMOS is released under the MIT license, with no third party runtime dependencies by design, standard library only. It is a clean room implementation, not a fork and with no copied code. Independent of NOMOS, Hermes and OpenClaw, which can use it without it becoming a dependency of any of them.</p>
         <div class="cta" style="margin-top:22px">
-          <a class="btn p" href="https://github.com/Voltolini-SPACE/epistemos">GitHub repository</a>
-          <a class="btn s" href="https://github.com/Voltolini-SPACE/epistemos/releases">Releases</a>
+          <a class="btn p" href="https://github.com/Voltolini-SPACE/epistemos">Star on GitHub</a>
+          <a class="btn s" href="https://github.com/Voltolini-SPACE/epistemos/blob/main/LICENSE">MIT License</a>
           <a class="btn s" href="https://github.com/Voltolini-SPACE/epistemos/tree/main/docs">Documentation</a>
         </div>
       </div>
@@ -335,7 +421,7 @@ eng.explain(ctx, fact_id)                                 # provenance genealogy
       <span>EPISTEMOS is an independent product, showcased on <a href="https://voltolini.space/">voltolini.space</a>.</span>
       <a href="https://github.com/Voltolini-SPACE/epistemos">GitHub</a>
       <a href="https://github.com/Voltolini-SPACE/epistemos/blob/main/LICENSE">MIT License</a>
-      <span class="sp">Sovereign context, memory &amp; provenance for AI agents.</span>
+      <span class="sp">Turn information into auditable knowledge.</span>
     </div>
   </footer>
 

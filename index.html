@@ -150,6 +150,26 @@
     .nomos li { padding:7px 0 7px 30px; position:relative; font-size:16px; }
     .nomos li::before { content:"✓"; position:absolute; left:2px; color:var(--coral); font-weight:700; }
 
+    /* vitrine openkern (identidade própria do produto dentro da moldura do hub:
+       terminal escuro, cor codifica estado, cursor pisca) */
+    .okterm { display:flex; flex-direction:column; background:#0C0F0E; color:#E9EDEA;
+        font:500 13px/1.9 'JetBrains Mono',monospace; }
+    .okterm:hover { text-decoration:none; }
+    .okterm-bar { display:flex; align-items:center; gap:10px; padding:11px 16px;
+        border-bottom:1px solid #242B28; color:#7B877F; font-size:11px; }
+    .okterm-bar svg { width:18px; height:18px; flex:none; }
+    .okterm-body { display:block; padding:16px 18px 18px; overflow-x:auto; }
+    .okln { display:block; white-space:nowrap; }
+    .okln b { font-weight:700; font-style:normal; }
+    .okln i { font-style:normal; }
+    .ok-allow { color:#57B87B; } .ok-ask { color:#D9A03F; }
+    .ok-deny { color:#DE685E; } .ok-dim { color:#7B877F; } .ok-ink { color:#E9EDEA; }
+    .ok-cursor { display:inline-block; width:8px; height:14px; background:#E9EDEA; vertical-align:-2px; }
+    @media (prefers-reduced-motion:no-preference) {
+        .ok-cursor { animation:okblink 1.1s step-end infinite; }
+        @keyframes okblink { 50% { opacity:0; } }
+    }
+
     .card-eco { display:block; color:inherit; }
     .card-eco:hover { text-decoration:none; }
     .card-eco h3 { display:flex; align-items:center; gap:10px; }
@@ -263,7 +283,7 @@
             <a href="#embreve">em breve</a>
             <a href="#nomos">nomos</a>
             <a href="#epistemos">epistemos</a>
-            <a href="openkern/">openkern</a>
+            <a href="#openkern">openkern</a>
             <a href="#ecossistema">ecossistema</a>
             <a href="#quem">quem sou</a>
             <button class="toggle" id="toggle" aria-label="Alternar tema claro e escuro">◐ tema</button>
@@ -413,6 +433,43 @@
                 </div>
                 <a class="shot rv" href="epistemos/" aria-label="Abrir a página do EPISTEMOS">
                     <img src="assets/epistemos-og.png" alt="EPISTEMOS. Memória soberana com proveniência para agentes de IA." width="1200" height="630" loading="lazy">
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section id="openkern" aria-labelledby="openkern-t">
+        <div class="wrap">
+            <div class="nomos">
+                <div class="rv">
+                    <span class="legenda">execução governada</span>
+                    <h2 id="openkern-t" style="margin:10px 0 14px">OpenKern. Seus agentes já sabem agir. Ele decide o que podem executar.</h2>
+                    <p>O kernel de execução governada para agentes de IA. Autoridade explícita, local por padrão, nada de mágica.</p>
+                    <ul>
+                        <li>Default-deny: se uma ação não foi permitida explicitamente, ela não roda.</li>
+                        <li>Capabilities de uso único: autoridade delimitada que se consome no uso.</li>
+                        <li>Execução tipada, sem shell arbitrário. Git transacional por um único chokepoint.</li>
+                        <li><span class="contador" data-alvo="95">0</span> testes no baseline congelado. Núcleo em Rust, local-first.</li>
+                        <li>Código aberto sob MIT. Evidência acima de alegação.</li>
+                    </ul>
+                    <div class="ctas" style="display:flex;gap:14px;flex-wrap:wrap">
+                        <a class="btn btn-primario" href="openkern/">Conhecer o OpenKern</a>
+                        <a class="btn btn-secundario" href="https://github.com/Voltolini-SPACE/openkern">Ver no GitHub</a>
+                    </div>
+                </div>
+                <a class="shot rv okterm" href="openkern/" aria-label="Abrir a página do OpenKern">
+                    <span class="okterm-bar">
+                        <svg viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="#E9EDEA" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M 22 16 L 14 16 L 14 48 L 22 48"/><path d="M 42 16 L 50 16 L 50 48 L 42 48"/><path d="M 25 25 L 34 32 L 25 39"/></g><rect x="38" y="26" width="7" height="12" rx="1" fill="#E9EDEA"/></svg>
+                        kern · mission m_4f2
+                    </span>
+                    <span class="okterm-body">
+                        <span class="okln"><b class="ok-allow">[+] ALLOW</b> <i class="ok-dim">policy: fs.read ./src (regra 12)</i></span>
+                        <span class="okln"><b class="ok-ink">[&gt;] EXECUTED</b> <i class="ok-dim">cargo test · exit 0 · 95 passed</i></span>
+                        <span class="okln"><b class="ok-allow">[=] VERIFIED</b> <i class="ok-dim">evidência confere com a declaração</i></span>
+                        <span class="okln"><b class="ok-ask">[?] ASK</b> <i class="ok-dim">net.egress aguarda autoridade explícita</i></span>
+                        <span class="okln"><b class="ok-deny">[-] DENY</b> <i class="ok-dim">fs.write /etc · nada executado</i></span>
+                        <span class="okln"><i class="ok-dim">$</i> <b class="ok-cursor" aria-hidden="true"></b></span>
+                    </span>
                 </a>
             </div>
         </div>

@@ -152,6 +152,7 @@
 
     /* vitrine openkern (identidade própria do produto dentro da moldura do hub:
        terminal escuro, cor codifica estado, cursor pisca) */
+    .ok-logo { width:72px; height:72px; color:var(--title); display:block; margin:0 0 14px; }
     .okterm { display:flex; flex-direction:column; background:#0C0F0E; color:#E9EDEA;
         font:500 13px/1.9 'JetBrains Mono',monospace; }
     .okterm:hover { text-decoration:none; }
@@ -442,6 +443,7 @@
         <div class="wrap">
             <div class="nomos">
                 <div class="rv">
+                    <svg class="ok-logo" viewBox="0 0 64 64" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M 22 16 L 14 16 L 14 48 L 22 48"/><path d="M 42 16 L 50 16 L 50 48 L 42 48"/><path d="M 25 25 L 34 32 L 25 39"/></g><rect x="38" y="26" width="7" height="12" rx="1" fill="currentColor"/></svg>
                     <span class="legenda">execução governada</span>
                     <h2 id="openkern-t" style="margin:10px 0 14px">OpenKern. Seus agentes já sabem agir. Ele decide o que podem executar.</h2>
                     <p>O kernel de execução governada para agentes de IA. Autoridade explícita, local por padrão, nada de mágica.</p>

@@ -67,9 +67,15 @@
     h1,h2,h3{ color:var(--title); line-height:1.15; letter-spacing:-.01em; }
     .skip{ position:absolute; left:-999px; top:0; background:var(--surface); color:var(--text); padding:10px 16px; border-radius:8px; }
     .skip:focus{ left:12px; top:12px; z-index:50; }
+    .hubbar{ position:sticky; top:0; z-index:60; background:var(--surface-2); border-bottom:1px solid var(--line); font-size:12.5px; }
+    .hubbar .wrap{ display:flex; align-items:center; gap:10px; height:38px; }
+    .hubbar a{ color:var(--muted); display:inline-flex; align-items:center; gap:8px; }
+    .hubbar a:hover{ color:var(--primary-strong); }
+    .hubbar .sep{ color:var(--muted); opacity:.6; }
+    .hubbar .here{ color:var(--text); }
 
     /* header */
-    header{ position:sticky; top:0; z-index:20; backdrop-filter:blur(10px);
+    header{ position:sticky; top:38px; z-index:20; backdrop-filter:blur(10px);
       background:color-mix(in srgb, var(--ink) 82%, transparent); border-bottom:1px solid var(--line); }
     .bar{ display:flex; align-items:center; gap:18px; height:62px; }
     .brand{ display:flex; align-items:center; gap:10px; font-weight:600; color:var(--title); letter-spacing:.14em; font-size:14px; }
@@ -170,6 +176,13 @@
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
+  <div class="hubbar">
+    <div class="wrap">
+      <a href="/">&#9700; voltolini.space</a>
+      <span class="sep">/</span>
+      <span class="here">epistemos</span>
+    </div>
+  </div>
   <header>
     <div class="wrap bar">
       <a class="brand" href="https://voltolini.space/" aria-label="Back to voltolini.space">
@@ -385,9 +398,9 @@
         <div class="metrics">
           <div class="metric"><div class="big">~183x</div><div class="lbl">100k lexical search, 6.2 s to 34 ms, via the FTS index</div></div>
           <div class="metric"><div class="big">~33,800x</div><div class="lbl">explain() provenance at 100k, about 1.9 s to 0.05 ms</div></div>
-          <div class="metric"><div class="big">928</div><div class="lbl">tests green, ruff and mypy strict clean, across core and panel</div></div>
+          <div class="metric"><div class="big">996</div><div class="lbl">tests green, ruff and mypy strict clean, across core, panel and protocol</div></div>
         </div>
-        <p class="note">Mutation 39 of 39 killed on the claim core, and 9 of 9 on the panel boundaries. The panel read model is 3 to 5 times faster on aggregate views after a single pass rewrite, measured at ten thousand objects with identical results. Accessibility meets WCAG AA and the layout holds from 320 to 1920 pixels. The core makes no network calls and needs no LLM. Numbers are reproducible with the scripts in the repository.</p>
+        <p class="note">Mutation 39 of 39 killed on the claim core, 9 of 9 on the panel boundaries, 6 of 6 on the Context Envelope, and 7 of 7 on the EPCTX protocol. The panel read model is 3 to 5 times faster on aggregate views after a single pass rewrite, measured at ten thousand objects with identical results. Accessibility meets WCAG AA and the layout holds from 320 to 1920 pixels. The core makes no network calls and needs no LLM. Numbers are reproducible with the scripts in the repository.</p>
       </div>
     </section>
 

@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!-- NOMOS brand v1.0 (VIGENTE, nao selado / proposta). Fonte: BRANDBOOKS_OFICIAIS/03_OUTRAS_MARCAS/NOMOS/v1.0_VIGENTE. -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NOMOS é um agente pessoal de IA que roda 100% no seu computador. Local por lei: nada sai sem permissão, toda ação sensível pede licença, e sem cérebro ele avisa em vez de inventar. Governança A0 a A6, auditoria à prova de adulteração, MIT.">
+  <meta name="author" content="Voltolini">
+  <meta name="theme-color" content="#0A0F0D">
+  <link rel="canonical" href="https://voltolini.space/nomos/">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <meta property="og:title" content="NOMOS. Seu agente. Sua máquina. Suas regras.">
+  <meta property="og:description" content="Um agente pessoal de IA que roda 100% no seu computador. Local por lei: nada sai sem permissão, toda ação sensível pede licença, e ele nunca finge uma resposta.">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="voltolini.space">
+  <meta property="og:url" content="https://voltolini.space/nomos/">
+  <meta property="og:image" content="https://voltolini.space/assets/nomos-preview.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="NOMOS. Seu agente. Sua máquina. Suas regras. Local por lei.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="NOMOS. Seu agente. Sua máquina. Suas regras.">
+  <meta name="twitter:description" content="Um agente pessoal de IA que roda 100% no seu computador. Local por lei.">
+  <meta name="twitter:image" content="https://voltolini.space/assets/nomos-preview.png">
+  <title>NOMOS · Seu agente. Sua máquina. Suas regras.</title>
+  <script>
+    /* tema compartilhado voltolini.space: escuro por padrão, escolha do visitante vence */
+    var _t = 'escuro';
+    try { var _s = localStorage.getItem('voltolini-tema');
+      if (_s === 'claro' || _s === 'escuro') _t = _s; } catch (e) {}
+    document.documentElement.setAttribute('data-tema', _t);
+  </script>
+  <style>
+    @font-face { font-family:'JetBrains Mono'; font-weight:400; font-display:swap; src:url('../assets/fonts/jbmono.woff2') format('woff2'); }
+    @font-face { font-family:'JetBrains Mono'; font-weight:500; font-display:swap; src:url('../assets/fonts/jbmono.woff2') format('woff2'); }
+    @font-face { font-family:'JetBrains Mono'; font-weight:700; font-display:swap; src:url('../assets/fonts/jbmono.woff2') format('woff2'); }
+
+    :root[data-tema="escuro"]{
+      --bg:#0A0F0D; --surface:#111814; --surface2:#0d130f; --line:#24382a; --line2:#1a2820;
+      --neon:#5AF78E; --neon-dim:#2BD968; --text:#E8FFE8; --muted:#9fb8a5; --faint:#6f8a76;
+      --rosa:#FF5FA2; --ciano:#56E1E9; --amarelo:#F2C14E; --vermelho:#FF5C57;
+      --glow:0 0 8px rgba(90,247,142,.30);
+    }
+    :root[data-tema="claro"]{
+      --bg:#F3F1E7; --surface:#ffffff; --surface2:#eceadf; --line:#cfc8b0; --line2:#ddd7c2;
+      --neon:#0f7a3d; --neon-dim:#0c6231; --text:#1c241c; --muted:#4a5a4a; --faint:#7a8a7a;
+      --rosa:#c02e77; --ciano:#0b7d86; --amarelo:#9a6b00; --vermelho:#b3271f; --glow:none;
+    }
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ overflow-x:clip; scroll-behavior:smooth; }
+    body{
+      font-family:'JetBrains Mono',ui-monospace,'SF Mono',Menlo,Consolas,monospace;
+      background:var(--bg); color:var(--text); line-height:1.6;
+      -webkit-font-smoothing:antialiased; font-size:15px;
+    }
+    a{ color:inherit; text-decoration:none; }
+    .wrap{ width:min(1080px,92vw); margin-inline:auto; }
+    section{ padding:76px 0; border-top:1px solid var(--line2); }
+
+    /* barra de volta ao hub */
+    .hubbar{
+      position:sticky; top:0; z-index:50; background:var(--surface2);
+      border-bottom:1px solid var(--line); font-size:12.5px;
+    }
+    .hubbar .wrap{ display:flex; align-items:center; gap:10px; height:38px; }
+    .hubbar a{ color:var(--muted); display:inline-flex; align-items:center; gap:8px; }
+    .hubbar a:hover{ color:var(--neon); }
+    .hubbar .sep{ color:var(--faint); }
+    .hubbar .here{ color:var(--text); }
+
+    /* nav */
+    nav.top{ position:sticky; top:38px; z-index:40; background:color-mix(in srgb, var(--bg) 88%, transparent);
+      backdrop-filter:blur(8px); border-bottom:1px solid var(--line2); }
+    nav.top .wrap{ display:flex; align-items:center; justify-content:space-between; height:56px; }
+    nav.top .brand{ color:var(--neon); font-weight:700; letter-spacing:1px; text-shadow:var(--glow); }
+    nav.top .links{ display:flex; gap:22px; font-size:13px; }
+    nav.top .links a{ color:var(--muted); }
+    nav.top .links a:hover{ color:var(--text); }
+    @media (max-width:720px){ nav.top .links{ display:none; } }
+
+    .kicker{ display:inline-flex; align-items:center; gap:8px; font-size:12.5px; color:var(--muted);
+      border:1px solid var(--line); border-radius:999px; padding:5px 12px; }
+    .kicker .d{ width:7px; height:7px; border-radius:50%; background:var(--neon); box-shadow:var(--glow); }
+
+    .hero{ padding-top:64px; }
+    pre.logo{ color:var(--neon); text-shadow:var(--glow); line-height:1.02;
+      font-size:clamp(7px,2.1vw,13px); margin:26px 0 8px; overflow-x:auto; }
+    h1{ font-size:clamp(40px,8vw,74px); letter-spacing:3px; color:var(--neon); text-shadow:var(--glow);
+      margin:6px 0 6px; }
+    .tag{ font-size:clamp(18px,3vw,24px); color:var(--text); margin:2px 0 16px; }
+    .lead{ font-size:16px; color:var(--muted); max-width:66ch; }
+    .ctas{ display:flex; gap:14px; flex-wrap:wrap; margin-top:26px; }
+    .btn{ font-family:inherit; font-size:13.5px; padding:11px 18px; border-radius:8px; border:1px solid var(--line);
+      display:inline-flex; align-items:center; gap:8px; transition:transform .15s, border-color .15s, background .15s; }
+    .btn:hover{ transform:translateY(-2px); }
+    .btn.primary{ background:var(--neon); color:#06120a; border-color:var(--neon); font-weight:700; }
+    .btn.primary:hover{ background:var(--neon-dim); }
+    .btn.ghost:hover{ border-color:var(--neon); color:var(--neon); }
+
+    .eyebrow{ font-size:12px; letter-spacing:2px; text-transform:uppercase; color:var(--faint); }
+    h2{ font-size:clamp(24px,4vw,34px); color:var(--text); margin:8px 0 14px; letter-spacing:.5px; }
+    .say{ color:var(--muted); max-width:70ch; }
+
+    .grid{ display:grid; gap:18px; margin-top:26px; }
+    .g2{ grid-template-columns:repeat(2,1fr); }
+    .g3{ grid-template-columns:repeat(3,1fr); }
+    @media (max-width:760px){ .g2,.g3{ grid-template-columns:1fr; } }
+    .card{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:20px; min-width:0; }
+    .card h3{ font-size:15px; color:var(--neon); margin-bottom:8px; }
+    .card p{ font-size:13.5px; color:var(--muted); }
+    .card .em{ font-size:20px; }
+
+    /* escada de risco */
+    .ladder{ margin-top:24px; border:1px solid var(--line); border-radius:12px; overflow:hidden; }
+    .rung{ display:grid; grid-template-columns:64px 1fr; gap:14px; padding:13px 18px; border-top:1px solid var(--line2);
+      align-items:baseline; }
+    .rung:first-child{ border-top:0; }
+    .rung .lv{ color:var(--neon); font-weight:700; }
+    .rung.warn .lv{ color:var(--amarelo); }
+    .rung.danger .lv{ color:var(--vermelho); }
+    .rung .d{ color:var(--muted); font-size:13.5px; }
+    .rung .d b{ color:var(--text); font-weight:500; }
+
+    .pill{ display:inline-block; font-size:11px; padding:2px 9px; border-radius:999px; border:1px solid var(--line);
+      color:var(--muted); margin-left:8px; vertical-align:middle; }
+    .pill.exp{ color:var(--amarelo); border-color:color-mix(in srgb,var(--amarelo) 40%, var(--line)); }
+    .pill.soon{ color:var(--ciano); border-color:color-mix(in srgb,var(--ciano) 40%, var(--line)); }
+
+    ul.tick{ list-style:none; margin-top:14px; }
+    ul.tick li{ position:relative; padding:6px 0 6px 26px; color:var(--muted); font-size:14px; }
+    ul.tick li::before{ content:"›"; position:absolute; left:4px; color:var(--neon); font-weight:700; }
+
+    pre.term{ background:var(--surface2); border:1px solid var(--line); border-radius:12px; padding:18px 20px;
+      overflow-x:auto; font-size:13px; color:var(--text); margin-top:20px; }
+    pre.term .c{ color:var(--faint); }
+    pre.term .g{ color:var(--neon); }
+
+    .metrics{ display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:24px; }
+    @media (max-width:760px){ .metrics{ grid-template-columns:repeat(2,1fr); } }
+    .metric{ border:1px solid var(--line); border-radius:12px; padding:18px; background:var(--surface); }
+    .metric .big{ font-size:26px; color:var(--neon); text-shadow:var(--glow); }
+    .metric .lbl{ font-size:12px; color:var(--muted); margin-top:4px; }
+
+    footer{ border-top:1px solid var(--line2); padding:44px 0 60px; color:var(--faint); font-size:13px; }
+    footer .wrap{ display:flex; flex-wrap:wrap; gap:14px 28px; align-items:center; justify-content:space-between; }
+    footer a{ color:var(--muted); } footer a:hover{ color:var(--neon); }
+    .note{ color:var(--faint); font-size:12.5px; margin-top:14px; }
+    @media (prefers-reduced-motion:reduce){ *{ transition:none !important; scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <div class="hubbar">
+    <div class="wrap">
+      <a href="/">◤ voltolini.space</a>
+      <span class="sep">/</span>
+      <span class="here">nomos</span>
+    </div>
+  </div>
+
+  <nav class="top">
+    <div class="wrap">
+      <a class="brand" href="#top">NOMOS</a>
+      <div class="links">
+        <a href="#principios">Princípios</a>
+        <a href="#risco">Risco</a>
+        <a href="#capacidades">Capacidades</a>
+        <a href="#seguranca">Segurança</a>
+        <a href="#instalar">Instalar</a>
+        <a href="https://github.com/Voltolini-SPACE/NOMOS">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <span class="kicker"><span class="d"></span> Open Source · MIT · local por lei</span>
+      <pre class="logo" aria-hidden="true">███╗   ██╗ ██████╗ ███╗   ███╗ ██████╗ ███████╗
+████╗  ██║██╔═══██╗████╗ ████║██╔═══██╗██╔════╝
+██╔██╗ ██║██║   ██║██╔████╔██║██║   ██║███████╗
+██║╚██╗██║██║   ██║██║╚██╔╝██║██║   ██║╚════██║
+██║ ╚████║╚██████╔╝██║ ╚═╝ ██║╚██████╔╝███████║
+╚═╝  ╚═══╝ ╚═════╝ ╚═╝     ╚═╝ ╚═════╝ ╚══════╝</pre>
+      <h1>NOMOS</h1>
+      <p class="tag">Seu agente. Sua máquina. Suas regras.</p>
+      <p class="lead">Um agente pessoal de IA que roda 100% no seu computador. Cérebro, memória, chaves e registros ficam na sua máquina. A nuvem é uma tomada opcional que você pluga de propósito, nunca por padrão. NOMOS vem do grego νόμος, a lei.</p>
+      <div class="ctas">
+        <a class="btn primary" href="https://github.com/Voltolini-SPACE/NOMOS">Ver no GitHub</a>
+        <a class="btn ghost" href="https://nomosofficial.com.br/">Site do produto</a>
+        <a class="btn ghost" href="#instalar">Como instalar</a>
+      </div>
+    </div>
+  </header>
+
+  <section id="principios">
+    <div class="wrap">
+      <p class="eyebrow">Três princípios inegociáveis</p>
+      <h2>Local por lei. Pede licença. Nunca finge.</h2>
+      <p class="say">Não são slogans. São regras que a própria política aplica antes de qualquer ação rodar.</p>
+      <div class="grid g3">
+        <div class="card"><div class="em">🔒</div><h3>Local por lei</h3><p>Por padrão, nada sai da sua máquina. A política de risco bloqueia qualquer saída de rede até você autorizar de propósito.</p></div>
+        <div class="card"><div class="em">✋</div><h3>Pede licença</h3><p>Toda ação sensível é aprovada por você, com um token de uso único e tempo de vida curto. Nada acontece à revelia.</p></div>
+        <div class="card"><div class="em">🎯</div><h3>Nunca finge</h3><p>Sem um cérebro conectado, o NOMOS avisa. Ele não inventa uma resposta para parecer útil.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faz">
+    <div class="wrap">
+      <p class="eyebrow">O que faz, o que não faz</p>
+      <h2>Controle e evidência, não promessas.</h2>
+      <div class="grid g2">
+        <div class="card">
+          <h3>O NOMOS faz</h3>
+          <ul class="tick">
+            <li>Simula antes de agir. Toda missão começa em ensaio.</li>
+            <li>Enfileira a ação para a sua aprovação, com token de uso único.</li>
+            <li>Registra tudo em uma trilha de auditoria ancorada em HMAC, à prova de adulteração.</li>
+            <li>Isola a execução sensível em sandbox.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>O NOMOS não faz</h3>
+          <ul class="tick">
+            <li>Não manda nada para a internet sem o seu opt-in.</li>
+            <li>Não executa ação real por padrão. Ensaio primeiro.</li>
+            <li>Não se atualiza sozinho. Ele propõe, você decide.</li>
+            <li>Não guarda segredo em log nem promete o impossível.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="risco">
+    <div class="wrap">
+      <p class="eyebrow">Escada de risco</p>
+      <h2>A0 a A6. O perigo fica visível.</h2>
+      <p class="say">Cada capacidade tem um nível de risco declarado. Quanto mais alto, mais atrito e mais aprovação. A rede sai bloqueada por padrão.</p>
+      <div class="ladder">
+        <div class="rung"><span class="lv">A0</span><span class="d"><b>Ler local.</b> Arquivos e memórias na sua máquina.</span></div>
+        <div class="rung"><span class="lv">A1</span><span class="d"><b>Escrever local.</b> Criar ou modificar arquivos locais.</span></div>
+        <div class="rung warn"><span class="lv">A2</span><span class="d"><b>Rede.</b> Qualquer saída para a internet. Bloqueada por padrão.</span></div>
+        <div class="rung warn"><span class="lv">A3</span><span class="d"><b>Conector ou credencial.</b> Um conector externo ou uma chave da caixa-forte.</span></div>
+        <div class="rung warn"><span class="lv">A4</span><span class="d"><b>Sensor.</b> Acesso a câmera, microfone ou tela.</span></div>
+        <div class="rung danger"><span class="lv">A5</span><span class="d"><b>Código ou skill.</b> Rodar código ou instalar uma skill.</span></div>
+        <div class="rung danger"><span class="lv">A6</span><span class="d"><b>Destrutivo.</b> Ações irreversíveis, com atrito máximo.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="capacidades">
+    <div class="wrap">
+      <p class="eyebrow">Capacidades</p>
+      <h2>Um agente completo, na sua máquina.</h2>
+      <div class="grid g3">
+        <div class="card"><h3>Cérebro e conversa</h3><p>Cérebro embarcado leve, roteamento local-first e respostas em streaming. Memória em SQLite com busca de texto completo. Council de motores que debatem e convergem, em ensaio.</p></div>
+        <div class="card"><h3>Missões governadas</h3><p>Plano, uma aprovação, execução passo a passo e evidência ao final. Cada passo passa pela mesma escada de risco antes de rodar.</p></div>
+        <div class="card"><h3>Caixa-forte</h3><p>Chaves e registros protegidos por senha-mestra. O NOMOS inteiro cabe em um arquivo cifrado. Botão de pânico revoga tudo e tranca.</p></div>
+        <div class="card"><h3>Cidadão MCP</h3><p>Servidor com ferramentas somente-leitura e cliente que pluga servidores locais como capacidades. Interopera sem abrir mão do controle.</p></div>
+        <div class="card"><h3>Painel local</h3><p>Dashboard em 127.0.0.1 com chat, status, motores, evidência e a política A0 a A6 ao vivo. O NOMOS Dash acompanha as missões, somente-leitura.</p></div>
+        <div class="card"><h3>Conectores oficiais</h3><p>Telegram, WhatsApp, Email SMTP e IMAP, Slack, Signal e Calendário .ics. APIs oficiais, sem nuvem de terceiro além do próprio serviço.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="seguranca">
+    <div class="wrap">
+      <p class="eyebrow">Segurança e cadeia de suprimento</p>
+      <h2>Provado, não prometido.</h2>
+      <p class="say">A política de segurança é executável: cada regra é um teste. As releases publicam hash, e as recentes trazem proveniência e inventário de dependências.</p>
+      <div class="metrics">
+        <div class="metric"><div class="big">1.900+</div><div class="lbl">testes automatizados</div></div>
+        <div class="metric"><div class="big">85%</div><div class="lbl">cobertura, gate em 80%</div></div>
+        <div class="metric"><div class="big">12/12</div><div class="lbl">CI: 3 sistemas × 4 Python</div></div>
+        <div class="metric"><div class="big">SHA-256</div><div class="lbl">builds reprodutíveis</div></div>
+      </div>
+      <ul class="tick">
+        <li>Trilha de auditoria ancorada em HMAC, à prova de adulteração, com evidência por missão.</li>
+        <li>Proveniência SLSA via Sigstore e transparência Rekor. Inventário de dependências publicado.</li>
+        <li>Sete gates bloqueantes: cobertura, mypy, pip-audit, reprodutibilidade e smoke em três sistemas.</li>
+        <li>Zero telemetria por padrão. Nenhum rastreamento embarcado.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="instalar">
+    <div class="wrap">
+      <p class="eyebrow">Instalar</p>
+      <h2>Python 3.10+. Sem GPU. Sem PC de ponta.</h2>
+      <p class="say">macOS, Windows ou Linux. A instalação verifica o hash e faz backup automático. Comece com o assistente guiado.</p>
+      <pre class="term"><span class="c"># instalar direto do repositório</span>
+pip install git+https://github.com/Voltolini-SPACE/NOMOS
+
+<span class="c"># primeiros passos</span>
+nomos              <span class="c"># assistente de configuração</span>
+nomos doutor       <span class="c"># check-up honesto de prontidão</span>
+nomos cerebro baixar <span class="c"># baixa o cérebro uma vez, com aprovação</span>
+nomos painel       <span class="c"># abre o painel em 127.0.0.1</span>
+nomos missao planejar<span class="c"> # planeja uma missão</span>
+nomos missao executar<span class="c"> # executa, com a sua licença</span></pre>
+    </div>
+  </section>
+
+  <section id="status">
+    <div class="wrap">
+      <p class="eyebrow">Status honesto</p>
+      <h2>O que está pronto, o que é experimental, o que vem depois.</h2>
+      <div class="grid g3">
+        <div class="card">
+          <h3>Disponível</h3>
+          <ul class="tick">
+            <li>Governança, política e auditoria.</li>
+            <li>Painel, chat e aprovações.</li>
+            <li>Conectores MCP e briefing.</li>
+            <li>Skills assinadas e criação de agentes.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Experimental <span class="pill exp">experimental</span></h3>
+          <ul class="tick">
+            <li>Mosaic: telas isoladas para tarefas separadas.</li>
+            <li>Adapter de demonstração, sintético, sem rede.</li>
+            <li>Navegador via Playwright, opt-in, testes não assinados.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Planejado <span class="pill soon">planejado</span></h3>
+          <ul class="tick">
+            <li>Go-live do Mosaic com login por tela.</li>
+            <li>Conectores Instagram e TikTok, aguardando aprovação oficial.</li>
+            <li>Personas multi-agente e rollback automático no Windows.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="note">Voz e marca NOMOS v1.0. Números e status refletem a documentação pública do produto e podem evoluir a cada release.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>MIT · mantido por Se7enpay · © 2026 NOMOS</span>
+      <span>
+        <a href="/">voltolini.space</a> ·
+        <a href="https://github.com/Voltolini-SPACE/NOMOS">GitHub</a> ·
+        <a href="https://nomosofficial.com.br/">Site do produto</a> ·
+        <a href="../epistemos/">EPISTEMOS</a>
+      </span>
+    </div>
+  </footer>
+</body>
+</html>
